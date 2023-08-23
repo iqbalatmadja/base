@@ -1,11 +1,11 @@
-<html>
+<html class="h-full bg-white">
     <head>
         <title>App Name - @yield('title')</title>
         <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
     </head>
-    <body>
+    <body class="h-full">
         @section('navbar')
         @show
         @section('sidebar')
@@ -13,5 +13,9 @@
         <div class="container">
             @yield('content')
         </div>
+        <script>
+            @yield('script')
+        </script>
+
     </body>
 </html>
