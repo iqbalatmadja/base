@@ -12,10 +12,13 @@
 @endsection
 
 @section('content')
-    DASHBOARD
-    <?php
-    echo Auth::check();
-    ?>
+    DASHBOARD<br/>
+    @if(Auth::check())
+        <a class="font-bold hover:text-red-500" href="{{ route('logout') }}">LOGOUT</a>
+    @else
+        <a href="{{ route('login') }}">LOGIN</a>
+    @endif
+
 @endsection
 
 @section('script')
