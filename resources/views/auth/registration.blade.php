@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-    @include('auth.loginform')
+    @include('auth.registrationform')
 @endsection
 
 @section('script')

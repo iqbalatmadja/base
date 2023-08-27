@@ -18,11 +18,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.8.1/cdn.min.js" defer></script>
 
 <!-- Slider Component Container -->
-<div class="flex flex-col items-center justify-center mt-32" x-cloak x-data="appData()" x-init="appInit()">
+<div class="flex flex-col items-center justify-center mt-32" x-cloak x-data="" x-init="">
     <div class="flex flex-col">
         <!-- Page Scroll Progress -->
         <div class="fixed inset-x-0 top-0 z-50 h-0.5 mt-0.5
-            bg-blue-500" :style="`width: ${percent}%`"></div>
+            bg-blue-500" :style="`width: $50%`"></div>
 
         <!-- Navbar -->
         <nav class="flex justify-around py-4 bg-white/80
@@ -107,7 +107,7 @@
             </div>
         </nav>
     </div>
-
+    <?php /*
     <!-- Dummy Scrollable Content -->
     <div class="flex flex-wrap" style="width: 1000px;">
         <div class="bg-orange-200 h-52 w-52 m-5"></div>
@@ -172,5 +172,6 @@
             Convetert to SASS
         </a>
     </span>
-</div>
 
+</div>
+*/?>
