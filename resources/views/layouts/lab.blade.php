@@ -1,10 +1,10 @@
-<html class="h-full bg-white">
+<html class="bg-white" data-theme="light">
     <head>
-        <title>App Name - @yield('title')</title>
+        <title>Lab Name - @yield('title')</title>
         <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    @stack('styles');
+  @stack('styles');
   </style>
   @vite('resources/css/app.css')
     </head>
@@ -17,6 +17,5 @@
         <script>
         @stack('scripts')
         </script>
-
     </body>
 </html>

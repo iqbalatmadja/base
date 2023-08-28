@@ -33,11 +33,17 @@ class AuthController extends Controller
 
     public function saveregistration(Request $request)
     {
+        $customMessages = [
+            'name.required' => 'The Name field is required',
+            'email.required' => 'The Email field is required',
+            'password.required' => 'The Password field is required',
+            'email.unique' => 'The Email is taken',
+        ];
         $request->validate([
             'name' => 'required|string|max:64',
             'email' => 'required|email:max:64|unique:users',
             'password' => 'required|min:8|confirmed'
-        ]);
+        ],$customMessages);
 
         User::create([
             'name' => $request->name,

@@ -14,6 +14,7 @@
 @section('content')
     DASHBOARD<br/>
     @if(Auth::check())
+        <p>{{ Auth::user()->name }}</p>
         <a class="font-bold hover:text-red-500" href="{{ route('logout') }}">LOGOUT</a>
     @else
         <a href="{{ route('login') }}">LOGIN</a>

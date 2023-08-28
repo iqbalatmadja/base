@@ -1,86 +1,42 @@
-<?php /*
-<div class="shadow bg-white">
-    <div class="h-16 mx-auto px-5 flex items-center justify-between">
-        <a class="text-2xl hover:text-cyan-500 transition-colors cursor-pointer">Logo</a>
-
-        <ul class="flex items-center gap-5">
-          <li><a class="hover:text-cyan-500 transition-colors" href="">Link 1</a></li>
-          <li><a class="hover:text-cyan-500 transition-colors" href="">Link 2</a></li>
-          <li><a class="hover:text-cyan-500 transition-colors" href="">Link 3</a></li>
-          <li><a class="hover:text-cyan-500 transition-colors" href="">Link 4</a></li>
-          <li><a class="hover:text-cyan-500 transition-colors" href="">Link 5</a></li>
+<div class="navbar bg-base-100">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+    </div>
+    <div class="flex-none">
+      <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost btn-circle">
+          <div class="indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            <span class="badge badge-sm indicator-item">8</span>
+          </div>
+        </label>
+        <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+          <div class="card-body">
+            <span class="font-bold text-lg">8 Items</span>
+            <span class="text-info">Subtotal: $999</span>
+            <div class="card-actions">
+              <button class="btn btn-primary btn-block">View cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          </div>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <li>
+            <a class="justify-between">
+              Profile
+              <span class="badge">New</span>
+            </a>
+          </li>
+          <li><a>Settings</a></li>
+          <li><a>Logout</a></li>
         </ul>
+      </div>
     </div>
-  </div>
-*/?>
-<!-- component -->
-<!-- AlpineJS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.8.1/cdn.min.js" defer></script>
 
-<!-- Slider Component Container -->
-<div class="flex flex-col items-center justify-center mt-32" x-cloak x-data="" x-init="">
-    <div class="flex flex-col">
-        <!-- Page Scroll Progress -->
-        <div class="fixed inset-x-0 top-0 z-50 h-0.5 mt-0.5 bg-blue-500" :style="`width: $50%`"></div>
-        <!-- Navbar -->
-        <nav class="flex justify-around py-4 bg-white/80 backdrop-blur-md shadow-md w-full fixed top-0 left-0 right-0 z-10">
-            <!-- Logo Container -->
-            <div class="flex items-center">
-                <!-- Logo -->
-                <a class="cursor-pointer">
-                    <h3 class="text-2xl font-medium text-blue-500">
-                        <img class="h-10 object-cover" src="https://stackoverflow.design/assets/img/logos/so/logo-stackoverflow.svg" alt="Store Logo">
-                    </h3>
-                </a>
-            </div>
-
-            <!-- Links Section -->
-            <div class="items-center hidden space-x-8 lg:flex">
-                <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    Home
-                </a>
-                <a class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-blue-600">
-                    Themes
-                </a>
-                <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    Developers
-                </a>
-                <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    Pricing
-                </a>
-                <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    Blog
-                </a>
-                <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
-                    About Us
-                </a>
-            </div>
-
-            <!-- Icon Menu Section -->
-            @guest
-            <div class="flex items-center space-x-5">
-                <a class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300" href="{{ route('registration') }}">
-                    <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M12 0L11.34 .03L15.15 3.84L16.5 2.5C19.75 4.07 22.09 7.24 22.45 11H23.95C23.44 4.84 18.29 0 12 0M12 4C10.07 4 8.5 5.57 8.5 7.5C8.5 9.43 10.07 11 12 11C13.93 11 15.5 9.43 15.5 7.5C15.5 5.57 13.93 4 12 4M12 6C12.83 6 13.5 6.67 13.5 7.5C13.5 8.33 12.83 9 12 9C11.17 9 10.5 8.33 10.5 7.5C10.5 6.67 11.17 6 12 6M.05 13C.56 19.16 5.71 24 12 24L12.66 23.97L8.85 20.16L7.5 21.5C4.25 19.94 1.91 16.76 1.55 13H.05M12 13C8.13 13 5 14.57 5 16.5V18H19V16.5C19 14.57 15.87 13 12 13M12 15C14.11 15 15.61 15.53 16.39 16H7.61C8.39 15.53 9.89 15 12 15Z" />
-                    </svg>
-                    Register
-                </a>
-                <a class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-blue-600" href="{{ route('login') }}">
-                    <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z" />
-                    </svg>
-                    Login
-                </a>
-            </div>
-            @else
-            <div class="flex items-center space-x-5">
-                <a class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-blue-600" href="{{ route('logout') }}">
-                    <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z" />
-                    </svg>
-                    Logout
-                </a>
-            </div>
-            @endguest
-        </nav>
-    </div>
+</div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LabController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +23,9 @@ Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::post('/processlogin',[AuthController::class,'processlogin'])->name('login.process');
 Route::get('/registration',[AuthController::class,'registration'])->name('registration');
 Route::post('/saveregistration',[AuthController::class,'saveregistration'])->name('registration.save');
-Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+
+Route::get('/lab',[LabController::class,'index'])->name('lab');
 
 Route::get('/dashboard',[AuthController::class,'dashboard'])->name('dashboard');
 
