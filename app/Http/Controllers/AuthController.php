@@ -11,23 +11,26 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest')->except([
-            'logout', 'dashboard'
-        ]);
+        // $this->middleware('guest')->except([
+        //     'logout', 'dashboard'
+        // ]);
     }
 
     public function login()
     {
+        if(Auth::check()) return redirect()->route('dashboard')->with('msg', 'You\'ve logged in!');
         return view('auth.login');
     }
 
     public function registration()
     {
+        if(Auth::check()) return redirect()->route('dashboard')->with('msg', 'You\'ve registered!');
         return view('auth.registration');
     }
 
     public function dashboard()
     {
+        if(!Auth::check()) return redirect()->route('login')->with('msg', 'You\'re not logged in!');
         return view('auth.dashboard');
     }
 
@@ -87,4 +90,30 @@ class AuthController extends Controller
         ])->onlyInput('email');
 
     }
+
+    public function profile()
+    {
+        if(!Auth::check()) return redirect()->route('login')->with('msg', 'You\'re not logged in!');
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
+        $profile = ['user'=>$user];
+        return view('auth.profile',$profile);
+    }
+    public function profileupdate(Request $request)
+    {
+        $customMessages = [
+            'name.required' => 'The Name field is required',
+            'name.max' => 'name field max 64 characters'
+        ];
+        $request->validate([
+            'name' => 'required|string|max:64',
+        ],$customMessages);
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->update();
+
+        return redirect()->route('profile')->with('msg', 'Profile updated');
+    }
+
 }

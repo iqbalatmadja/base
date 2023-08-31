@@ -24,11 +24,12 @@ Route::post('/processlogin',[AuthController::class,'processlogin'])->name('login
 Route::get('/registration',[AuthController::class,'registration'])->name('registration');
 Route::post('/saveregistration',[AuthController::class,'saveregistration'])->name('registration.save');
 Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+Route::get('/profile',[AuthController::class,'profile'])->name('profile');
 
 Route::get('/lab',[LabController::class,'index'])->name('lab');
 
 Route::get('/dashboard',[AuthController::class,'dashboard'])->name('dashboard');
-
+Route::post('/profileupdate',[AuthController::class,'profileupdate'])->name('profileupdate');
 
 /*
 Route::controller(AuthController::class)->group(function(){
